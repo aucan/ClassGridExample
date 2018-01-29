@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ekleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.gosterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,11 +53,13 @@
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ekleToolStripMenuItem,
+            this.gosterToolStripMenuItem,
             this.jsonToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -75,6 +80,18 @@
             this.jsonToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.jsonToolStripMenuItem.Text = "2 Json";
             this.jsonToolStripMenuItem.Click += new System.EventHandler(this.jsonToolStripMenuItem_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // gosterToolStripMenuItem
+            // 
+            this.gosterToolStripMenuItem.Name = "gosterToolStripMenuItem";
+            this.gosterToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.gosterToolStripMenuItem.Text = "goster";
+            this.gosterToolStripMenuItem.Click += new System.EventHandler(this.gosterToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -101,6 +118,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ekleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jsonToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem gosterToolStripMenuItem;
     }
 }
 

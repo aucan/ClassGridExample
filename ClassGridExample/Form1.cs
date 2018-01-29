@@ -47,9 +47,9 @@ namespace ClassGridExample
  
         private void Form1_Load(object sender, EventArgs e)
         {
-            SetDataGrid();
+           // SetDataGrid();
         }
-
+        /*
         private void SetDataGrid()
         { 
             dataGridView1.Columns.Add("a", "Kolon 1");
@@ -57,21 +57,23 @@ namespace ClassGridExample
             dataGridView1.Columns.Add("c", "c");
             dataGridView1.Columns.Add("d", "id");
         }
+        */
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 0; i < 100; i++)
             {
-                Thread.Sleep(300); 
+                Thread.Sleep(200); 
                 liste.Add(new deneme("a", "b", 1, ++satir));
                 //dataGridView1.Invoke((Action)(() => dataGridView1.Rows.Add("a", "b", 1, satir)));
-                dataGridView1.Invoke((Action)(() => dataGridView1.Rows.Insert(0,"a", "b", 1, satir)));
+                //dataGridView1.Invoke((Action)(() => dataGridView1.Rows.Insert(0,"a", "b", 1, satir)));
             }
         } 
 
         private void ekleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             backgroundWorker1.RunWorkerAsync();
+            
         }
 
         private void jsonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,6 +81,19 @@ namespace ClassGridExample
             var tmp = liste;
             string json = new JavaScriptSerializer().Serialize(tmp);
             MessageBox.Show(json);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = liste;
+
+        }
+
+
+        private void gosterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
         }
     }
 }
