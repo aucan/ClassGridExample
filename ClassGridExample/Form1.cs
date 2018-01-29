@@ -61,9 +61,9 @@ namespace ClassGridExample
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 1000000; i++)
             {
-                Thread.Sleep(200); 
+                Thread.Sleep(10); 
                 liste.Add(new deneme("a", "b", 1, ++satir));
                 //dataGridView1.Invoke((Action)(() => dataGridView1.Rows.Add("a", "b", 1, satir)));
                 //dataGridView1.Invoke((Action)(() => dataGridView1.Rows.Insert(0,"a", "b", 1, satir)));
